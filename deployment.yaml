@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-anubhav-docker
+  labels:
+    app: hello-anubhav-docker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-anubhav-docker
+  template:
+    metadata:
+      labels:
+        app: hello-anubhav-docker
+    spec:
+      containers:
+        - image: gcr.io/disco-plane-327514/hello-anubhav-docker:0.0.1
+          name: hello-anubhav-docker-container
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+        - image: gcr.io/cloudsql-docker/gce-proxy:1.18.0
+          name: cloud-sql-proxy
+          command:
+            - "/cloud_sql_proxy"
+            - "-instances=disco-plane-327514:us-central1:mysql-instance=tcp:3306"
+          securityContext:
+            runAsNonRoot: true
