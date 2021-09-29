@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-anubhav-docker
+  name: hello-mysql-docker
   labels:
-    app: hello-anubhav-docker
+    app: hello-mysql-docker
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-anubhav-docker
+      app: hello-mysql-docker
   template:
     metadata:
       labels:
-        app: hello-anubhav-docker
+        app: hello-mysql-docker
     spec:
       containers:
-        - image: gcr.io/disco-plane-327514/hello-anubhav-docker:0.0.1
-          name: hello-anubhav-docker-container
+        - image: gcr.io/disco-plane-327514/hello-mysql-docker:0.0.1
+          name: hello-mysql-docker-container
           imagePullPolicy: Always
           ports:
             - containerPort: 8080

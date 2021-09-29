@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/mysql-instance disco-plane-327514:us-central1:
+    username: root
+    password: rainbow@123
