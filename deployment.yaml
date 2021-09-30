@@ -15,7 +15,7 @@ spec:
         app: hello-mysql-docker
     spec:
       containers:
-        - image: gcr.io/disco-plane-327514/hello-mysql-docker:0.0.1
+        - image: gcr.io/disco-plane-327514/hello-mysql-docker:0.0.2
           name: hello-mysql-docker-container
           imagePullPolicy: Always
           ports:
