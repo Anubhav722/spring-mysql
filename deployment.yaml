@@ -37,5 +37,3 @@ spec:
           command:
             - "/cloud_sql_proxy"
             - "-instances=disco-plane-327514:us-central1:mysql-instance=tcp:3306"
-          securityContext:
-            runAsNonRoot: true
