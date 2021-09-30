@@ -16,7 +16,7 @@ spec:
     spec:
       serviceAccountName: cloud-sql-sa
       containers:
-        - image: gcr.io/disco-plane-327514/hello-mysql-docker:0.0.3
+        - image: gcr.io/disco-plane-327514/hello-mysql-docker:0.0.4
           name: hello-mysql-docker-container
           imagePullPolicy: Always
           ports:
