@@ -20,10 +20,21 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /employee/status
+            initialDelaySeconds: 5
+            failureThreshold: 5
+          livenessProbe:
+              httpGet:
+                port: 8080
+                path: /employee/status
+              initialDelaySeconds: 5
+              failureThreshold: 5
         - image: gcr.io/cloudsql-docker/gce-proxy:1.18.0
           name: cloud-sql-proxy
           command:
-            - "/bin/sh -c while true; do echo Done Deploying sv-premier; sleep 10;done"
             - "/cloud_sql_proxy"
             - "-instances=disco-plane-327514:us-central1:mysql-instance=tcp:3306"
           securityContext:

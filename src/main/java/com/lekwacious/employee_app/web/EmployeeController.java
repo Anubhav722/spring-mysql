@@ -27,6 +27,11 @@ public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
 
+    @GetMapping("status")
+    public ResponseEntity<?> getStatus () {
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     @GetMapping("/all")
     public ResponseEntity<List<Employee>> getAllEmployees () {
         List<Employee> footballers = employeeService.getAllEmployee();
